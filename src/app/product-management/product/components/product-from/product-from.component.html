@@ -1,0 +1,32 @@
+<div style="float: right;">
+  <button mat-raised-button (click)="openDialog()" style="margin-right: 5px;">Add</button>
+</div>
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Mã</th>
+      <th scope="col">Số lượng</th>
+      <th scope="col">Giá</th>
+      <th scope="col">Ngày tạo</th>
+      <th scope="col">Người tạo</th>
+      <th scope="col">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let el of productList$|async">
+      <th scope="row">{{el.id}}</th>
+      <td>{{el.name}}</td>
+      <td>{{el.code}}</td>
+      <td>{{el.quantity}}</td>
+      <td>{{el.price}}</td>
+      <td>{{el.createdDate|date: 'dd/MM/yyyy'}}</td>
+      <td>{{el.createdBy}}</td>
+      <td style="width: 20%;">
+        <button mat-raised-button (click)="openDialogUpdate(el)" style="margin-right: 5px;">Update</button>
+        <button mat-raised-button (click)="openDialogUpdate()">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
